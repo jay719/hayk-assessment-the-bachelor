@@ -1,17 +1,41 @@
-def get_first_name_of_season_winner(data, season)
-  # code here
+require 'pry'
+
+
+def find_season (seasons, season_label)
+  seasons.select do |season|
+    season == season_label  
+  end
+end
+
+def season_winners (seasons, season_label)
+
+   season = find_season(seasons,season_label)
+   season[season_label].select do |contestant|
+    
+    contestant["status"]=="Winner"
+
+end
+end
+def get_first_name_of_season_winner(seasons, season_label)
+
+season_winner= season_winners(seasons,season_label)[0]["name"]
+season_winner[0]["name"]
+binding.pry
+
 end
 
 def get_contestant_name(data, occupation)
   # code here
+ 
+  
 end
-
 def count_contestants_by_hometown(data, hometown)
   # code here
 end
 
 def get_occupation(data, hometown)
   # code here
+  
 end
 
 def get_average_age_for_season(data, season)
